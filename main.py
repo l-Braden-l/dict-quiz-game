@@ -27,16 +27,24 @@ questions = [
         'answer':'Portal'
     }
 ]
-#--Loop Questions--#
+#---Loop Questions---#
 for question in questions:
-    question_text = question.get('question')#get question
-    print(f'\n{question_text}')#print question
+    #--Question--#
+    question_text = question.get('question')
+    print(f'\n{question_text}')
 
-    user_answer = input("Enter answer: ").title()#user input
-    correct_answer = question.get('answer')#get correct answer
+    #--Answer--#
+    user_answer = input("Enter answer: ").title()
+    correct_answer = question.get('answer')
+    if user_answer == correct_answer:
+        score += 10
 
-    if user_answer == correct_answer:#If answer right
-        score += 10#add score
+#---Print---#
+print('\nYour score =',  score)#--Print score at end
 
 
-print('Your score =',  score)#Print score at end
+#---Score Response---#
+if score <= 20:
+    print('you got a low score, run again to try and get higher!\n')
+else:
+    print('You got a high score, good job!\n')
